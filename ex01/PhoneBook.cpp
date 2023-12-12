@@ -6,6 +6,14 @@ PhoneBook::PhoneBook( void ) {
 
 PhoneBook::~PhoneBook( void ){};
 
+void PhoneBook::displayContacts() const {
+    for (int i = 0; i < contactCount; ++i) {
+        std::cout << "Contact " << i + 1 << std::endl;
+        cellule[i].displayContact();
+        std::cout << std::endl;
+    }
+}
+
 void PhoneBook::removeContact( int indexContact ) {
     
     if (indexContact >= 0 && indexContact < contactCount) {
@@ -19,24 +27,24 @@ void PhoneBook::removeContact( int indexContact ) {
 }
 
 void PhoneBook::addContact( void ) {
+    std::string thing[5];
+    std::string phrase[5];
+    phrase[0] = "Enter first name: ";
+    phrase[1] = "Enter last name: ";
+    phrase[2] = "Enter nickname: ";
+    phrase[3] = "Enter darkest secret: ";
+    phrase[4] =  "Enter phone number: ";
+    int i = 0;
     if (contactCount >= maxContacts) {
         std::cout << "Le répertoire est plein. Supprimez un contact existant avant d'en ajouter un nouveau." << std::endl;
     } else {
-        std::cout << "Enter first name: ";
-        std::cin >> cellule[contactCount].firstName;
-
-        std::cout << "Enter last name: ";
-        std::cin >> cellule[contactCount].lastName;
-
-        std::cout << "Enter nickname: ";
-        std::cin >> cellule[contactCount].nickName;
-
-        std::cout << "Enter darkest secret: ";
-        std::cin >> cellule[contactCount].darkestSecret;
-
-        std::cout << "Enter phone number: ";
-        std::cin >> cellule[contactCount].phoneNumber;
-
+        while(i<5){
+            std::cout << phrase[i];
+            std::cin >> thing[i];
+            i++;
+        }
         ++contactCount;
+        cellule[contactCount].replace(thing);
     }
+    return;
 }

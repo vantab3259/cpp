@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 class Contact
 {
@@ -5,9 +6,9 @@ class Contact
 
 		Contact( void );
 		~Contact( void );
-		void displayContact();
-
-
+		void replace(const std::string thing[5]);
+		void displayContact() const;
+    	
 	private:
 		std::string firstName;
 		std::string lastName;
@@ -23,6 +24,8 @@ class PhoneBook
 		~PhoneBook( void );
 		void addContact();
 		void removeContact(int indexContact);
+		void displayContacts() const;
+
 		
 	private:
 		static const int maxContacts = 8;
