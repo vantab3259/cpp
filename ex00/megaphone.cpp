@@ -4,29 +4,29 @@
 //std::cerr : affichage erreur (affichage direct)
 //std::clog : journalisation (en memoire tampon)
 //std::endl : retour a la ligne + flush
-using namespace std;
+
 
 int main(int ac, char **av)
 {
 	if(ac<= 1)
 	{
-		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return(0);
 	}
 
 	int j = 1;
-	string str(av[j]);
+	std::string str(av[j]);
 	while (j < ac)
 	{	
 		str = av[j];
 		for(int i = 0; i < (int)str.length(); i++)
 		{
-			cout << (char)toupper(str[i]) ;
+			std::cout << (char)toupper(str[i]) ;
 		}
-		cout << " ";
+		std::cout << " ";
 		j++;
 
 	}
-	cout << endl;
+	std::cout << std::endl;
 	return (0);
 }
