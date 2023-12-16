@@ -1,19 +1,23 @@
-#include "bphone.hpp"
-using namespace std;
+#include "PhoneBook.hpp"
 
 int main(void)
 {
     PhoneBook repertoire;
-    Contact cellule;
-    string command;
+    std::string command;
+	std::cout << "ADD,SEARCH,EXIT ae the only available command" << std::endl;
     while(true)
     {
-        getline(cin, command);
+		if (!std::getline(std::cin, command) || std::cin.eof()) {
+			return 1;
+		}
         if(command == "EXIT")
             break;
         if(command == "ADD")
             repertoire.addContact();
         if(command == "SEARCH")
+		{
             repertoire.displayContacts();
+			repertoire.askContact();
+		}
     }
 }

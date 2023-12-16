@@ -1,21 +1,13 @@
 #pragma once
+#include <limits>
 #include <iostream>
-class Contact
-{
-	public:
-
-		Contact( void );
-		~Contact( void );
-		void replace(const std::string thing[5]);
-		void displayContact() const;
-    	
-	private:
-		std::string firstName;
-		std::string lastName;
-		std::string nickName;
-		std::string darkestSecret;
-		std::string phoneNumber;
-};
+#include "Contact.hpp"
+#include <string>
+#include <cstring>
+#include <cstdlib>
+#include <iostream>
+#include <iomanip> 
+#include <sstream>
 
 class PhoneBook
 {
@@ -25,6 +17,7 @@ class PhoneBook
 		void addContact();
 		void removeContact(int indexContact);
 		void displayContacts() const;
+		void askContact() const;
 
 		
 	private:
