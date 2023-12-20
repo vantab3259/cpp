@@ -21,26 +21,32 @@ void PhoneBook::askContact() const
 	std::string indexStr;
 	int index = 9;
 	while(index == 9){
+		if(contactCount == 0)
+		{
+			std::cout << "Pas encore de contact enregistré" << std::endl;
+			return;
+		}
 		std::cout << "Choisir l'index du contact a afficher." << std::endl;
 		if (!std::getline (std::cin, indexStr) || std::cin.eof()) 
 			return;
 		if(indexStr.empty())
 			continue;
 		index = atoi(indexStr.c_str());
-		
+		if(index < 0 || index >= contactCount)
+		{
+			index = 9;
+			continue;
+		}
+		if(index == 0 && indexStr != "0")
+		{
+			index = 9;
+			std::cout << "Entrée invalide" << std::endl;
+			continue;
+		}
 	}
 	cellule[index].displayContact();
 }
  
-
-// void PhoneBook::displayContacts() const {
-//     for (int i = 0; i < contactCount; ++i) {
-//         std::cout << "Contact " << i + 1 << std::endl;
-//         cellule[i].displayContact();
-//         std::cout << std::endl;
-//     }
-// }
-
 void PhoneBook::removeContact( int indexContact ) {
     
     if (indexContact >= 0 && indexContact < contactCount) {
@@ -72,8 +78,11 @@ void PhoneBook::addContact( void ) {
 		if (!std::getline (std::cin,thing[i]) || std::cin.eof()) {
 			return;
 		}
-		if(thing[i].empty())
+		if(thing[i].empty() ||(i == 4 && !isnum(thing[i])))
+		{
+			std::cout << "Prompt invalide" <<std::endl;
 			continue;
+		}
 		i++;
 	}
   	std::stringstream ss;
@@ -85,4 +94,12 @@ void PhoneBook::addContact( void ) {
 	cellule[contactCount].replace(thing);
 	++contactCount;
     return;
+}
+
+bool PhoneBook::isnum(std::string thing){
+	for (int i = 0; i < (int)thing.length() ; i++){
+		if(!std::isdigit(thing[i]) && thing[i] != '*' && thing[i] != '#')
+			return false;
+	}
+	return true;
 }

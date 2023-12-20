@@ -18,6 +18,7 @@ class PhoneBook
 		void removeContact(int indexContact);
 		void displayContacts() const;
 		void askContact() const;
+		bool isnum(std::string thing);
 
 		
 	private:
