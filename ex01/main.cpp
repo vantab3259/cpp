@@ -1,9 +1,16 @@
 #include "PhoneBook.hpp"
 
+
+
+void handleQuitSignal(int signal) {
+    (void)signal;
+    std::cout << "Signal SIGQUIT reçu. Ignoré." << std::endl;
+}
 int main(void)
 {
     PhoneBook repertoire;
     std::string command;
+    std::signal(SIGQUIT, handleQuitSignal);
 	std::cout << "ADD,SEARCH,EXIT ae the only available command" << std::endl;
     while(true)
     {

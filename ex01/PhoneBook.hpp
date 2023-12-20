@@ -8,6 +8,7 @@
 #include <iostream>
 #include <iomanip> 
 #include <sstream>
+#include <csignal>
 
 class PhoneBook
 {
