@@ -19,14 +19,14 @@ void Contact::displayContact() const {
     std::cout << "Nick Name: " << nickName << std::endl;
     std::cout << "Darkest Secret: " << darkestSecret << std::endl;
     std::cout << "Phone Number: " << phoneNumber << std::endl;
+    std::cout << std::endl;
+
 }
 
 
 void Contact::displayChoice() const {
-	std::cout << std::setw(10) << "index" << "|" 
-			<< std::setw(10) << "First Name" << "|" 
-			<< std::setw(10) << "Last Name" << "|" 
-			<< std::setw(10) << "Nick Name" << std::endl;
+   
+	
 
 	std::cout << std::setw(10) << index << "|" 
 			<< pointOrNo(firstName, 10) << "|" 

@@ -26,4 +26,6 @@ class PhoneBook
 		static const int maxContacts = 8;
 		Contact cellule[maxContacts];
 		int contactCount;
+		int indexCount;
+		bool contactExist;
 };

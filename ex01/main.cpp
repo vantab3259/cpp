@@ -4,27 +4,29 @@
 
 void handleQuitSignal(int signal) {
     (void)signal;
-    std::cout << "Signal SIGQUIT reçu. Ignoré." << std::endl;
+    std::cout << "SIGQUIT signal received. Ignored." << std::endl;
 }
+
 int main(void)
 {
-    PhoneBook repertoire;
+    PhoneBook phonebook;
     std::string command;
     std::signal(SIGQUIT, handleQuitSignal);
-	std::cout << "ADD,SEARCH,EXIT ae the only available command" << std::endl;
+	
     while(true)
     {
-		if (!std::getline(std::cin, command) || std::cin.eof()) {
-			return 1;
-		}
+        std::cout << "Use : ADD, SEARCH, EXIT for add, search or exit lol" << std::endl;
+		if (!std::getline(std::cin, command) || std::cin.eof())
+			break;
         if(command == "EXIT")
             break;
         if(command == "ADD")
-            repertoire.addContact();
+            phonebook.addContact();
         if(command == "SEARCH")
 		{
-            repertoire.displayContacts();
-			repertoire.askContact();
+            phonebook.displayContacts();
+			phonebook.askContact();
 		}
     }
+    return (0);
 }
