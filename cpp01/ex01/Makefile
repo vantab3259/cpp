@@ -1,5 +1,5 @@
 CPP = g++
-NAME = Zombie
+NAME = Zombies
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -MMD
 SRCS = main.cpp \
        Zombie.cpp \

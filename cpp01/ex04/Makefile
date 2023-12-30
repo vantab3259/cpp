@@ -1,7 +1,8 @@
 CPP = g++
-NAME = Brain
+NAME = Sed
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -MMD
-SRCS = main.cpp 
+SRCS = main.cpp\
+		replace.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
