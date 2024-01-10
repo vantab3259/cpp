@@ -15,7 +15,7 @@ class PhoneBook
 	public:
 		PhoneBook( void );
 		~PhoneBook( void );
-		void addContact();
+		int addContact();
 		void removeContact(int indexContact);
 		void displayContacts() const;
 		void askContact() const;

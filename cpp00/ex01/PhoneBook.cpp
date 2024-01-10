@@ -30,6 +30,12 @@ void PhoneBook::askContact() const
 		std::cout << "Select the index of the contact you want to display : " << std::endl;
 		if (!std::getline (std::cin, indexStr) || std::cin.eof()) 
 			return;
+		for (std::size_t j = 0; j < indexStr.length(); ++j) {
+			if (!std::isprint(static_cast<unsigned char>(indexStr[j]))) {
+				std::cerr << "Erreur : La ligne contient des caractères non imprimables." << std::endl;
+				continue;
+			}
+		}
 		if(indexStr.empty())
 			continue;
 		index = atoi(indexStr.c_str());
@@ -48,8 +54,8 @@ void PhoneBook::askContact() const
 	}
 	cellule[index].displayContact();
 }
- 
-void PhoneBook::addContact( void ) {
+
+int PhoneBook::addContact( void ) {
 	contactExist = true;
     std::string thing[6];
     std::string phrase[5];
@@ -62,7 +68,13 @@ void PhoneBook::addContact( void ) {
 	while(i<5){
 		std::cout << phrase[i];
 		if (!std::getline (std::cin,thing[i]) || std::cin.eof()) {
-			return;
+			return 0;
+		}
+		for (std::size_t j = 0; j < thing[i].length(); ++j) {
+			if (!std::isprint(static_cast<unsigned char>(thing[i][j]))) {
+				std::cerr << "Erreur : La ligne contient des caractères non imprimables." << std::endl;
+				return(-1);
+			}
 		}
 		if(thing[i].empty() ||(i == 4 && !isnum(thing[i])))
 		{
@@ -80,7 +92,7 @@ void PhoneBook::addContact( void ) {
 	if(contactCount < maxContacts)
 		contactCount++;
 	indexCount = (indexCount + 1) % 8;
-	return;
+	return 0;
 }
 
 bool PhoneBook::isnum(std::string thing){

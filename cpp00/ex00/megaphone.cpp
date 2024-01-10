@@ -17,7 +17,8 @@ int main(int ac, char **av)
 		{
 			std::cout << (char)toupper(str[i]) ;
 		}
-		std::cout << " ";
+		if(j < ac-1)
+			std::cout << " ";
 		j++;
 
 	}
