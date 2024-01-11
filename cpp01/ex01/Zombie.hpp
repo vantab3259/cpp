@@ -1,6 +1,9 @@
 #include <iostream>
 #include <malloc.h>
 #include <memory.h>
+#ifndef AFFICHER_MESSAGES
+    # define AFFICHER_MESSAGES 0
+#endif
 class Zombie
 {
 private:

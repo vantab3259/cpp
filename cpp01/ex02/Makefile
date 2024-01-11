@@ -1,4 +1,4 @@
-CPP = g++
+CPP = c++
 NAME = Brain
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -MMD
 SRCS = main.cpp 
@@ -12,13 +12,13 @@ $(NAME): $(OBJS)
 	if [ ! -d objs ]; then \
 		mkdir -p objs; \
 	fi
-	mv *.o objs
+	mv *.o *.d objs 
 
 %.o: %.cpp
 	$(CPP) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -f objs/*.o
+	rm -f objs/*.o objs/*.d
 
 fclean: clean
 	rm -f $(NAME)

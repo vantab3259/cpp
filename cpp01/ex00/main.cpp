@@ -1,5 +1,6 @@
 #include "Zombie.hpp"
 int main(){
+	Zombie noname;
     Zombie *heap = newZombie("hipster");
     Zombie stack("skater");
 

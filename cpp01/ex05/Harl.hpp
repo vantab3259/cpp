@@ -12,8 +12,8 @@ class Harl
 		Harl(void);
 		~Harl();
 
-		void    complain(std :: string level);
-		typedef void    (Harl :: *ptr_func)(void);
+		void    complain(std::string level);
+		typedef void    (Harl::*ptr_func)(void);
 };
 
 typedef void (Harl::*t_func) ( void );

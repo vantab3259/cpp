@@ -1,7 +1,13 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name){
-    this->name = name;
+Zombie::Zombie(){
+	if(AFFICHER_MESSAGES == 1)
+		std::cout << "Constror default : " << name  << std::endl;
+
+}
+Zombie::Zombie(std::string name) : name(name){
+	if(AFFICHER_MESSAGES == 1)
+		std::cout << "Constructeur de : " << this->name <<std::endl;
 }
 
 Zombie::~Zombie(){
