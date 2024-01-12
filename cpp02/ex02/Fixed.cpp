@@ -2,6 +2,7 @@
 
 
 Fixed::Fixed(const Fixed& other) : fixedPoint(other.getRawBits()) {}
+
 Fixed::Fixed(int const value) : fixedPoint(value << FRACT) {
 }
 

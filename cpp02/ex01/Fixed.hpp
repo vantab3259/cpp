@@ -7,9 +7,7 @@ private:
 	int fixedPoint;
 	static const int FRACT = 8;
 public:
-	Fixed() : fixedPoint(0) {
-        std::cout << "Default constructor called" << std::endl;
-    }
+	Fixed();
 	Fixed(const Fixed& copy);
 	Fixed(int const value);
 	Fixed(float const value);

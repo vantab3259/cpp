@@ -1,4 +1,4 @@
-CPP = g++
+CPP = c++
 NAME = FragTrap
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -MMD
 SRCS = main.cpp \

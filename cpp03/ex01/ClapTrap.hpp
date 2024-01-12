@@ -12,18 +12,10 @@ private:
 
 public:
 
-	ClapTrap() : m_name("NewPlayer"), hitPoint(10), energyPoint(10), attackDamage(0){
-		std::cout << "coonstructor default called" << std::endl;
-	}
-	ClapTrap(ClapTrap& other) : m_name(other.getName()), hitPoint(other.getHitPoint()), energyPoint(other.getEnergyPoint()), attackDamage(other.getAttackDammage()){
-		std::cout << "Copy coonstructor called" << std::endl;
-	}
-	ClapTrap(const std::string& name) : m_name(name), hitPoint(10), energyPoint(10), attackDamage(0){
-		std::cout << "ClapTrap Constructor for the name " << name << " called" << std::endl;
-	}
-	~ClapTrap(){
-		std::cout << "Default destructor called" << std::endl;
-	}
+	ClapTrap();
+	ClapTrap(const ClapTrap& other);
+	ClapTrap(const std::string& name);
+	~ClapTrap();
 
 	ClapTrap& operator=(const ClapTrap& other);
 	

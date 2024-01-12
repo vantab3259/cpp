@@ -1,4 +1,4 @@
-CPP = g++
+CPP = c++
 NAME = Fixed
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -MMD
 SRCS = main.cpp \

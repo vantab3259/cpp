@@ -10,7 +10,7 @@ private:
 public:
 	ScavTrap();
 	ScavTrap(const ScavTrap &copy);
-	ScavTrap(std::string name);
+	ScavTrap(const std::string name);
 	~ScavTrap(){
 		std::cout << "Default destructor scavtrap called" << std::endl;
 	}

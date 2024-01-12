@@ -9,7 +9,7 @@ private:
 public:
 	FragTrap();
 	FragTrap(const FragTrap &copy);
-	FragTrap(std::string name);
+	FragTrap(const std::string name);
 	~FragTrap(){
 		std::cout << "Default destructor Fragtrap called" << std::endl;
 	}

@@ -1,22 +1,26 @@
 #include "Fixed.hpp"
 
+Fixed::Fixed(): fixedPoint(0)
+{
+	std::cout << "Default Constructor called" << std::endl;
+}
 
 Fixed::Fixed(const Fixed& other) : fixedPoint(other.getRawBits()) {
 	std::cout << "Copy constructor called" << std::endl;
 }
 
-Fixed::Fixed(int const value) : fixedPoint(value << FRACT) {
+Fixed::Fixed(const int  value) : fixedPoint(value << FRACT) {
     std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(float const value) : fixedPoint(roundf(value * (1 << FRACT))) {
+Fixed::Fixed(const float value) : fixedPoint(roundf(value * (1 << FRACT))) {
     std::cout << "Float constructor called" << std::endl;
 }
 Fixed& Fixed::operator=(const Fixed& assigned)
 {
+	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &assigned)
 	{
-		std::cout << "Copy assignment operator called" << std::endl;
 		this->fixedPoint = assigned.getRawBits();
 	}
 	return *this;

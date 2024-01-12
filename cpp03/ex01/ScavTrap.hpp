@@ -12,18 +12,10 @@ private:
 	unsigned int attackDamage;
 
 public:
-	ScavTrap() : ClapTrap("NewPlayer"), m_name("NewPlayer"), hitPoint(100), energyPoint(50), attackDamage(20){
-		std::cout << "Constructor default scavtrap NewPlayer called" << std::endl;
-	}
-	ScavTrap(ScavTrap& other) : ClapTrap(other), m_name(other.getName()), hitPoint(other.getHitPoint()), energyPoint(other.getEnergyPoint()), attackDamage(other.getAttackDammage()){
-		std::cout << "Copy coonstructor scavtrap called" << std::endl;
-	}
-	ScavTrap(const std::string& name) : ClapTrap(name), m_name(name), hitPoint(100), energyPoint(50), attackDamage(20){
-		std::cout << "ScavTrap Constructor for the name of scavtrap " << name << " called" << std::endl;
-	}
-	~ScavTrap(){
-		std::cout << "Default destructor scavtrap called" << std::endl;
-	}
+	ScavTrap();
+	ScavTrap(constScavTrap& other);
+	ScavTrap(const std::string& name) ;
+	~ScavTrap();
 
 	void	attack(const std::string &target);
 	void 	guardGate();

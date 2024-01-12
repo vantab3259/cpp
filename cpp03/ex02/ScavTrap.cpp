@@ -8,13 +8,12 @@ ScavTrap::ScavTrap(): ClapTrap()
 	std::cout << "ScavTrap Default Constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap(copy)
+ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
 {
-
 	std::cout << "ScavTrap Copy Constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name)
+ScavTrap::ScavTrap(const std::string name): ClapTrap(name)
 {
 	this->hitPoint = 100;
 	this->energyPoint = 50;
