@@ -5,7 +5,6 @@ Dog::Dog() : Animal(){
 	std::cout << "Dog " << _type << "create" << std::endl;
 }
 Dog::Dog(const Dog &copy) : Animal(){
-	_type =  copy.getType();
 	std::cout << "Dog " << _type << "create by copy" << std::endl;
 	*this = copy;
 }
@@ -25,9 +24,4 @@ Dog &Dog::operator=(const Dog &src)
 void Dog::makeSound(void)const
 {
 	std::cout << _type << ":" << " OUAFF, GRRR.... " << std::endl;
-}
-
-std::string	Dog::getType(void)const
-{
-	return (this->_type);
 }

@@ -5,7 +5,6 @@ WrongCat::WrongCat() : WrongAnimal(){
 	std::cout << "WrongCat " << _type << "create" << std::endl;
 }
 WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal(){
-	_type =  copy.getType();
 	std::cout << "WrongCat " << _type << "create by copy" << std::endl;
 	*this = copy;
 }

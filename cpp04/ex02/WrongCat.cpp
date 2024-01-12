@@ -27,7 +27,4 @@ void WrongCat::makeSound(void)const
 	std::cout << _type << ":" << " MIIIAAWWWUUUUU..... " << std::endl;
 }
 
-std::string	WrongCat::getType(void)const
-{
-	return (this->_type);
-}
+

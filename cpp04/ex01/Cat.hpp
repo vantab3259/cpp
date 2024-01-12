@@ -16,10 +16,7 @@ class Cat : public Animal
 		Cat &operator=(const Cat &src);
 
 		virtual void makeSound(void)const;
-		std::string getType(void)const;
 		Brain *getBrain() const;
-		void compareTo(Cat const & other_cat) const;
-
 };
 
 #endif

@@ -16,9 +16,7 @@ class Dog : public Animal
 		Dog &operator=(const Dog &src);
 
 		virtual void makeSound(void)const;
-		std::string getType(void)const;
 		Brain *getBrain() const;
-		void compareTo(Dog const & other_dog) const;
 };
 
 #endif

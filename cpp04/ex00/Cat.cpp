@@ -5,7 +5,6 @@ Cat::Cat() : Animal(){
 	std::cout << "Cat " << _type << "create" << std::endl;
 }
 Cat::Cat(const Cat &copy) : Animal(){
-	_type =  copy.getType();
 	std::cout << "Cat " << _type << "create by copy" << std::endl;
 	*this = copy;
 }
@@ -27,7 +26,3 @@ void Cat::makeSound(void)const
 	std::cout << _type << ":" << " MIIIAAWWWUUUUU..... " << std::endl;
 }
 
-std::string	Cat::getType(void)const
-{
-	return (this->_type);
-}

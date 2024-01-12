@@ -14,6 +14,16 @@ int main()
 	delete j;
 	delete i;
 
+	//const AAnimal* j = new Dog();
+	//const AAnimal* i = new Cat();
+	// std::cout << j->getType() << " " << std::endl;
+	// std::cout << i->getType() << " " << std::endl;
+	// i->makeSound(); //will output the cat sound!
+	// j->makeSound();
+	// delete j;
+	// delete i;
+
+
 	const WrongAnimal* wrongmeta = new WrongAnimal();
 	const WrongAnimal* wrongi = new WrongCat();
 	std::cout << wrongi->getType() << " " << std::endl;
@@ -37,29 +47,14 @@ int main()
 
 	std::cout << std::endl;
 	std::cout << std::endl;
-
-	// Proof of deep copy
 	Dog medor;
 	Cat fifi;
-
 	Dog & medor_ref = medor;
 	Cat & fifi_ref = fifi;
 
 	std::cout << std::endl << "creating copies" << std::endl;
 	Dog medor_copy(medor_ref);
 	Cat fifi_copy(fifi_ref);
-
-	Dog & medor_copy_ref = medor_copy;
-	Cat & fifi_copy_ref = fifi_copy;
-
-	std::cout << std::endl << "comparing" << std::endl;
-	medor.compareTo(medor_copy_ref);
-	fifi.compareTo(fifi_copy_ref);
-	std::cout << std::endl;
-	std::cout << std::endl;
-	std::cout << std::endl;
-	std::cout << std::endl;
-
 
 	// Array of animals
 	const Animal	*animal_array[4];

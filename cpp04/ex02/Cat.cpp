@@ -33,28 +33,10 @@ void Cat::makeSound(void)const
 	std::cout << _type << ":" << " MIIIAAWWWUUUUU..... " << std::endl;
 }
 
-std::string	Cat::getType(void)const
-{
-	return (this->_type);
-}
+
 
 Brain *Cat::getBrain( void ) const
 {
 	return (this->catBrain);
 }
 
-void Cat::compareTo(Cat const & other_Cat) const
-{
-	std::cout << std::endl;
-	std::cout << "Now comparing two Cats\n";
-	std::cout << "My brain's heap address: " << static_cast<void*>(this->catBrain) << std::endl;
-	std::cout << "Other's heap address: " << static_cast<void*>(other_Cat.getBrain()) << std::endl;
-	std::cout << std::endl;
-	std::cout << "My brain's ideas \t\t | \t\t\t Other brain's ideas\n";
-	for (int i = 0; i < 100; i++)
-		std::cout << "-";
-	std::cout << std::endl;
-	for (int i = 0; i < 100; i++)
-		std::cout << ((catBrain)->getIdeaAddress(0))[i] << "\t\t\t | \t\t\t" << ((other_Cat.getBrain())->getIdeaAddress(0))[i] << std::endl;
-	std::cout << std::endl;
-}
