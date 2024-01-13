@@ -2,11 +2,8 @@ CPP = c++
 NAME = AnimalAbstract
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -MMD
 SRCS = main.cpp \
-		AAnimal.cpp \
 		Animal.cpp \
-		WrongAnimal.cpp \
 		Dog.cpp \
-		WrongCat.cpp \
 		Cat.cpp \
 		Brain.cpp
 

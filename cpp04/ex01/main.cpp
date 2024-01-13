@@ -1,7 +1,6 @@
 
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongCat.hpp"
 
 int main()
 {
@@ -17,19 +16,6 @@ int main()
 	delete j;
 	delete i;
 
-	const WrongAnimal* wrongmeta = new WrongAnimal();
-	const WrongAnimal* wrongi = new WrongCat();
-	std::cout << wrongi->getType() << " " << std::endl;
-	wrongi->makeSound(); //will output the cat sound!
-	wrongmeta->makeSound();
-	delete wrongi;
-	delete wrongmeta;
-
-	std::cout << std::endl;
-	std::cout << std::endl;
-	//next
-
-		// Exercice example
 	const Animal* dog = new Dog();
 	const Animal* cat = new Cat();
 
@@ -67,6 +53,7 @@ int main()
 		animal_array[i] = new Cat();
 	std::cout << std::endl;
 
+	//but all destroy
 	for (int i = 0; i < 4; i++)
 		delete animal_array[i];
 	std::cout << std::endl;

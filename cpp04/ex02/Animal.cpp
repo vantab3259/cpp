@@ -25,7 +25,7 @@ Animal &Animal::operator=(const Animal &src)
 
 void Animal::makeSound(void)const
 {
-	std::cout << getType() << " animal doesn't make any sound." << std::endl;
+	std::cout << getType() << " Animal doesn't make any sound." << std::endl;
 }
 
 std::string	Animal::getType(void)const

@@ -9,10 +9,10 @@ class Dog : public Animal
 	private:
 		Brain *DogBrain;
 	public:
+
 		Dog();
 		Dog(const Dog &copy);
 		virtual ~Dog();
-
 		Dog &operator=(const Dog &src);
 
 		virtual void makeSound(void)const;

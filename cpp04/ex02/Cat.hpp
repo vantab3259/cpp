@@ -7,12 +7,14 @@
 class Cat : public Animal
 {
 	private:
+
 		Brain *catBrain;
+
 	public:
+
 		Cat();
 		Cat(const Cat &copy);
 		virtual ~Cat();
-
 		Cat &operator=(const Cat &src);
 
 		virtual void makeSound(void)const;
