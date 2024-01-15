@@ -20,5 +20,11 @@ int main()
 	wrongi->makeSound(); //will output the cat sound!
 	wrongmeta->makeSound();
 
+	delete  wrongmeta;
+	delete  wrongi;
+	delete i;
+	delete j;
+	delete meta;
+
 	return 0;
 }

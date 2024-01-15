@@ -59,5 +59,14 @@ int main()
 	std::cout << std::endl;
 
 	
+	{
+		Dog test;
+
+		Dog test2 = test;
+
+		std::cout<< "test : " << test.getBrain() <<std::endl;
+		std::cout<< "test2 : " << test2.getBrain() <<std::endl;
+	}
+
 	return 0;
 }
