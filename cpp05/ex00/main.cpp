@@ -68,7 +68,7 @@ int main(void)
 	catch (std::exception& e) {
 		std::cout << "Error: " << e.what() << std::endl;
 	}
-		try {
+	try {
 		Bureaucrat	good_bureaucrat("intelo", 1);
 		std::cout << good_bureaucrat;
 		good_bureaucrat.decrementGrade(80);
@@ -79,4 +79,16 @@ int main(void)
 	catch (std::exception& e) {
 		std::cout << "Error: " << e.what() << std::endl;
 	}
+	Bureaucrat *ptr = new Bureaucrat("new", 1);
+	try{
+		std::cout << *ptr;
+		ptr->incrementGrade();
+		std::cout << *ptr;
+	}
+	catch(std::exception& e){
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+	delete ptr;
+
+
 }
