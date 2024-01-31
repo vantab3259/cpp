@@ -1,4 +1,5 @@
 #include "Bureaucrat.h"
+#include "Form.h"
 
 Bureaucrat::Bureaucrat() : name("default"), grade(75)
 {
@@ -13,7 +14,6 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade) : name(name), grade(g
 		throw GradeTooLowException();
 	
 }
-
 Bureaucrat::Bureaucrat(const Bureaucrat& copy) {
 	std::exception error;
 
@@ -34,6 +34,20 @@ Bureaucrat&	Bureaucrat::operator =(const Bureaucrat& copy) {
 
 Bureaucrat::~Bureaucrat()
 {
+
+}
+
+void Bureaucrat::signForm(Form& form) {
+	try
+	{
+		form.beSigned(*this);
+		std::cout << name << " signed " << form.getName() << "." << std::endl;
+	}
+	catch (const Form::GradeTooLowException& e)
+	{
+		std::cout << name << " couldn't sign " << form.getName()
+				  << " because their grade is too low." << std::endl;
+	}
 }
 
 const std::string&	Bureaucrat::getName() const {
