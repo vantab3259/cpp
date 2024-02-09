@@ -1,5 +1,7 @@
-#include "ICharacter.hpp"
-#include "AMateria.hpp"
+#ifndef ICE_HPP
+# define ICE_HPP
+
+# include "AMateria.hpp"
 
 class Ice : public AMateria
 {
@@ -19,3 +21,5 @@ public:
 	virtual void use(ICharacter& target);
 
 };
+
+#endif

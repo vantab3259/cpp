@@ -2,6 +2,11 @@ CPP = c++
 NAME = materia
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -MMD
 SRCS = main.cpp \
+		Ice.cpp \
+		Cure.cpp \
+		MateriaSource.cpp \
+		Character.cpp \
+		AMateria.cpp
 
 
 OBJS = $(SRCS:.cpp=.o)

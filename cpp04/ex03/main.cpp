@@ -1,17 +1,23 @@
 #include <iostream>
+#include "AMateria.hpp"
 #include "Character.hpp"
-#include "MateriaSource.hpp"
-#include "Ice.hpp"
 #include "Cure.hpp"
+#include "Ice.hpp"
+#include "ICharacter.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 
-
-int main (void)
+int main(void)
 {
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+
 	ICharacter* me = new Character("me");
-	AMateria* tmp;
+	 AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");

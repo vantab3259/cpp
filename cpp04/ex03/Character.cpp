@@ -1,5 +1,12 @@
-#include "AMateria.hpp"
 #include "Character.hpp"
+
+Character::Character(void) {
+    std::cout << "Character default constructor called" << std::endl;
+    this->_name = "null";
+    for (int i = 0; i < 4; i++)
+        this->_inventory[i] = NULL;
+    return;
+}
 
 Character::Character(std::string const & name) : ICharacter(), _name(name) {
 	std::cout << "Character " << _name << " create" << std::endl;
@@ -46,11 +53,19 @@ std::string	const & Character::getName() const
 }
 
 void Character::equip(AMateria* m){
+	if (m == NULL)
+	{
+		std::cout << "Invalid materia!" << std::endl;
+		return;
+	}
 	for(int i = 0; i < 4; i++)
 	{
-		if (!_inventory[i])
-			_inventory[i] = m->clone();
-		i++;
+		if (_inventory[i] == NULL)
+		{
+			_inventory[i] = m;
+			std::cout << "Equiped " << m->getType() << " in slot " <<  std::endl;
+			return;
+		}
 	}
 }
 void Character::unequip(int idx){
@@ -63,7 +78,7 @@ void Character::unequip(int idx){
 
 }
 
-void Character::use(int idx, Character& target) {
+void Character::use(int idx, ICharacter& target) {
 	if (idx < 0 || idx >= 4 || !(_inventory)[idx])
 	{
 		std::cout << "Nothing found to use at index " << idx << std::endl;
@@ -85,31 +100,3 @@ void Character::push_trash(int i, AMateria *to_trash)
 		this->_inventory[i] = NULL;
 }
 
-void Character::display_inventory()
-{
-	std::cout << "===============================================" << std::endl;
-	std::cout << "Inventory of " << _name << ":" << std::endl;
-	for (int i = 0; i < 4; i++)
-	{
-		if (_inventory[i] == NULL)
-			std::cout << i << ". Empty" << std::endl;
-		else
-			std::cout << i << ". " << _inventory[i]->getType() << std::endl;
-	}
-	std::cout << "===============================================" << std::endl;
-}
-
-void Character::display_trash()
-{
-	AMateria *tmp = _trash;
-	int i = 0;
-	
-	std::cout << "***********************************************" << std::endl;
-	std::cout << "Trash of " << _name << ":" << std::endl;
-	while (tmp)
-	{
-		std::cout << i++ << ". " << tmp->getType() << std::endl;
-		tmp = tmp->_next;
-	}
-	std::cout << "***********************************************" << std::endl;
-}

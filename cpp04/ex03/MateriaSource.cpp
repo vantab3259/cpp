@@ -64,18 +64,24 @@ void MateriaSource::learnMateria(AMateria* m)
 		std::cout << "Not enough space to store a new Materia!" << std::endl;
 		return ;
 	}
-	this->materias[items] = m->clone();
-}
 
+	this->materias[items] = m->clone();
+	std::cout << m << std::endl;
+	
+	std::cout << materias[items] << std::endl;
+	std::cout << materias[items+1] << std::endl;
+}
 AMateria* MateriaSource::createMateria(std::string const &type)
 {
 	int i;
 
 	for (i = 4 - 1; i >= 0; i--)
 	{
+		std::cout << type << " et" << this->materias[0]->getType() << std::endl;
 		if (this->materias[i] && this->materias[i]->getType() == type)
 			return (this->materias[i]->clone());
 	}
+	std::cout << "merde" << std::endl;
 	return (NULL);
 }
 

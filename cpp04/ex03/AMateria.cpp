@@ -1,7 +1,11 @@
-#include <AMateria.hpp>
+#include "AMateria.hpp"
 
-AMateria::AMateria(std::string const & type){
-	std::cout << "AMateria " << _type << " create" << std::endl;
+AMateria::AMateria(): _type("null") {
+    std::cout << "AMateria default constructor called" << std::endl;
+}
+
+AMateria::AMateria(std::string const &type):_type(type) {
+    std::cout << "AMateria constructor called" << std::endl;
 }
 
 AMateria::AMateria(const AMateria &copy) {

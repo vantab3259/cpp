@@ -1,6 +1,11 @@
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
-# include <ICharacter.hpp>
+
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
+
+# include <iostream>
+# include "ICharacter.hpp"
+
+// class ICharacter;
 
 class AMateria
 {

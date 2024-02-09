@@ -2,7 +2,6 @@
 # define MATERIASOURCE_HPP
 
 # include "IMateriaSource.hpp"
-# include "AMateria.hpp"
 
 class MateriaSource : public IMateriaSource
 {
