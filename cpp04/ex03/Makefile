@@ -1,6 +1,6 @@
 CPP = c++
 NAME = materia
-FLAGS =  -std=c++98 -g3 -MMD
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -MMD
 SRCS = main.cpp \
 		Ice.cpp \
 		Cure.cpp \
