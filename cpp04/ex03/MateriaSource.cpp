@@ -3,12 +3,15 @@
 
 MateriaSource::MateriaSource()
 {
+    std::cout << "MateriaSource default constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 		this->materias[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &source)
 {
+    std::cout << "MateriaSource copy constructor called" << std::endl;
+
 	for (int i = 0; i < 4; i++)
 	{
 		if (source.materias[i])
@@ -20,6 +23,7 @@ MateriaSource::MateriaSource(const MateriaSource &source)
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &source)
 {
+	
 	if (this == &source)
 		return (*this);
 	for (int i = 0; i < 4; i++)
@@ -65,11 +69,8 @@ void MateriaSource::learnMateria(AMateria* m)
 		return ;
 	}
 
-	this->materias[items] = m->clone();
-	std::cout << m << std::endl;
-	
-	std::cout << materias[items] << std::endl;
-	std::cout << materias[items+1] << std::endl;
+	this->materias[items] = m;
+
 }
 AMateria* MateriaSource::createMateria(std::string const &type)
 {
@@ -77,24 +78,8 @@ AMateria* MateriaSource::createMateria(std::string const &type)
 
 	for (i = 4 - 1; i >= 0; i--)
 	{
-		std::cout << type << " et" << this->materias[0]->getType() << std::endl;
 		if (this->materias[i] && this->materias[i]->getType() == type)
 			return (this->materias[i]->clone());
 	}
-	std::cout << "merde" << std::endl;
 	return (NULL);
-}
-
-void MateriaSource::display_materias()
-{
-	std::cout << "###############################################" << std::endl;
-	std::cout << "Content of Materias:" << std::endl;
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->materias[i])
-			std::cout << i << ". " << this->materias[i]->getType() << std::endl;
-		else
-			std::cout << i << ". Empty" << std::endl;
-	}
-	std::cout << "###############################################" << std::endl;
 }

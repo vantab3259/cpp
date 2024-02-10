@@ -9,8 +9,8 @@ AMateria::AMateria(std::string const &type):_type(type) {
 }
 
 AMateria::AMateria(const AMateria &copy) {
-	std::cout << "AMateria " << _type << " create by copy" << std::endl;
 	*this = copy;
+	std::cout << "AMateria " << _type << " create by copy" << std::endl;
 }
 
 AMateria::~AMateria()
