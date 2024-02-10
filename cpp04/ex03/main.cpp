@@ -28,6 +28,14 @@ int main(void)
 	me->use(0, *bob);
 	me->use(1, *bob);
 	std::cout << std::endl;
+	std::cout << "///End of Fonction use on 2 index where materia are equiped///"<< std::endl;
+	std::cout << std::endl;
+	std::cout << "///Some more test///"<< std::endl;
+	std::cout << std::endl;
+	me->unequip(0);
+	me->unequip(1);
+
+	std::cout << std::endl;
 	std::cout << "///Information about delete of structure///" << std::endl;
 	std::cout << std::endl;
 	delete bob;

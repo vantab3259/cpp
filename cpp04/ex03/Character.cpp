@@ -3,6 +3,8 @@
 Character::Character(void) {
     std::cout << "Character default constructor called" << std::endl;
     this->_name = "null";
+    this->_trash= NULL;
+
     for (int i = 0; i < 4; i++)
         this->_inventory[i] = NULL;
     return;
@@ -10,6 +12,8 @@ Character::Character(void) {
 
 Character::Character(std::string const & name) : ICharacter(), _name(name) {
 	std::cout << "Character " << _name << " create" << std::endl;
+    this->_trash= NULL;
+	
 	for(int i = 0; i < 4; i++)
 	{
 		this->_inventory[i] = NULL;
@@ -28,6 +32,14 @@ Character::~Character()
 		if (this->_inventory[i])
 			delete this->_inventory[i];
 	}
+	AMateria * head = _trash;
+	while(_trash)
+	{
+		_trash = _trash->_next;
+		delete head;
+		head = _trash;
+	}
+	
 	std::cout << "Character " << _name << "Deconstructor called" << std::endl;
 }
 
