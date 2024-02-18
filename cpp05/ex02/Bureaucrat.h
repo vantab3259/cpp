@@ -19,7 +19,7 @@ public:
 	int					getGrade() const;
     void	incrementGrade(int change = 1);
 	void	decrementGrade(int change = 1);
-	void	signForm(Form &form);
+	void	signForm(AForm &form);
     class GradeTooLowException: public std::exception {
         virtual const char*	what() const throw();
     };

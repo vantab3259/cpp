@@ -2,13 +2,17 @@
 #define PRESIDENTIALPARDONFORM_H
 
 #pragma once
-#include "Form.h"
+#include "AForm.h"
+#include "Bureaucrat.h"
 
-class PresidentialPardonForm : public Form
+class PresidentialPardonForm : public AForm
 {
 public:
-    PresidentialPardonForm();
-    ~PresidentialPardonForm();
+    	PresidentialPardonForm();
+		PresidentialPardonForm(const PresidentialPardonForm& form);
+		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm& operator=(const PresidentialPardonForm& form);
+		~PresidentialPardonForm();
 
 private:
 

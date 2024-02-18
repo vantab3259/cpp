@@ -2,14 +2,17 @@
 #define SHRUBBERYCREATIONFORM_H
 
 #pragma once
-#include "Form.h"
+#include "AForm.h"
 
 
-class ShrubberyCreationForm : public Form
+class ShrubberyCreationForm : public AForm
 {
 public:
-    ShrubberyCreationForm();
-    ~ShrubberyCreationForm();
+	ShrubberyCreationForm();
+	ShrubberyCreationForm(const ShrubberyCreationForm& form);
+	ShrubberyCreationForm(std::string target);
+	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& form);
+	~ShrubberyCreationForm();
 
 private:
 

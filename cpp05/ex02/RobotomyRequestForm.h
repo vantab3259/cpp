@@ -2,13 +2,16 @@
 #define ROBOTOMYREQUESTFORM_H
 
 #pragma once
-#include "Form.h"
+#include "AForm.h"
 
-class RobotomyRequestForm : public form
+class RobotomyRequestForm : public AForm
 {
 public:
-    RobotomyRequestForm();
-    ~RobotomyRequestForm();
+	RobotomyRequestForm();
+	RobotomyRequestForm(const RobotomyRequestForm& form);
+	RobotomyRequestForm(std::string target);
+	RobotomyRequestForm& operator=(const RobotomyRequestForm& form);
+	~RobotomyRequestForm();
 
 private:
 

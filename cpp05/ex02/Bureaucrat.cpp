@@ -37,13 +37,13 @@ Bureaucrat::~Bureaucrat()
 
 }
 
-void Bureaucrat::signForm(Form& form) {
+void Bureaucrat::signForm(AForm& form) {
 	try
 	{
 		form.beSigned(*this);
 		std::cout << name << " signed " << form.getName() << "." << std::endl;
 	}
-	catch (const Form::GradeTooLowException& e)
+	catch (const AForm::GradeTooLowException& e)
 	{
 		std::cout << name << " couldn't sign " << form.getName()
 				  << " because their grade is too low." << std::endl;

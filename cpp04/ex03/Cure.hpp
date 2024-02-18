@@ -5,9 +5,6 @@
 
 class Cure : public AMateria
 {
-protected:
-
-	std::string	_type;
 
 public:
 
