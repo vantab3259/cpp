@@ -36,7 +36,6 @@ int main(void)
 		std::cout << elite;
 		default_creation.decrementGrade(80);
 		std::cout << default_creation;
-		std::cout << "this message will be skip by the catch";
 	}
 	catch (std::exception& e) {
 		std::cout << "Error: " << e.what() << std::endl;

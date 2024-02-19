@@ -15,14 +15,14 @@ class AForm {
 	
 	protected:
 		const std::string target;
-		
 
 	public:
 		AForm();
+		void checkRequirements(const Bureaucrat& bureaucrat) const;
 		AForm(const AForm& form);
 		AForm(std::string name, std::string target, int signGrade, int executeGrade);
 		AForm& operator=(const AForm& form);
-		~AForm();
+		virtual ~AForm();
 
 		std::string getTarget() const;
 		std::string getName() const;
@@ -30,7 +30,6 @@ class AForm {
 		int getExecuteGrade() const;
 		bool isSigned() const;
 		void beSigned(const Bureaucrat& bureaucrat);
-		void checkRequirements(const Bureaucrat& bureaucrat) const;
 		virtual void execute(Bureaucrat const & executor) const = 0;
 		class GradeTooHighException : public std::exception {
 			public:

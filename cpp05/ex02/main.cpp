@@ -1,25 +1,26 @@
 
 #include "Bureaucrat.h"
-#include "Form.h"
+#include "PresidentialPardonForm.h"
+#include "RobotomyRequestForm.h"
+#include "ShrubberyCreationForm.h"
 #include <sstream>
 
 
 int main(void)
 {
-
 	try
 	{
 		Bureaucrat bur("name1", 140);
 		std::cout << bur;
-		Form form("gtfrce", 150, 150);
+		PresidentialPardonForm form;
 		std::cout << form;
+		bur.signForm(form);
+		bur.incrementGrade(137);
 		bur.signForm(form);
 		std::cout << form;
 		bur.signForm(form);
-
-		bur.incrementGrade(160);
+		bur.executeForm(form);
 		std::cout << bur;
-		return(0);
 	}
 	catch(std::exception& ex)
 	{
@@ -28,11 +29,14 @@ int main(void)
 	std::cout << std::endl;
 
 	try {
-		Bureaucrat	default_creation;
+		Bureaucrat	default_creation("ffff", 1);
 		std::cout << default_creation;
-		Form elite("gtfrce", 10, 150);
+		RobotomyRequestForm elite("gettar");
 		std::cout << elite;
 		default_creation.signForm(elite);
+		default_creation.executeForm(elite);
+		elite.execute(default_creation);
+
 		std::cout << elite;
 		default_creation.decrementGrade(80);
 		std::cout << default_creation;
@@ -43,11 +47,12 @@ int main(void)
 	}
 	try {
 		Bureaucrat	good_bureaucrat("intelo", 1);
-		Form elite("gtfrce", 10, 150);
+		ShrubberyCreationForm elite;
 		std::cout << elite;
 		good_bureaucrat.signForm(elite);
 		std::cout << elite;
 		std::cout << good_bureaucrat;
+		elite.execute(good_bureaucrat);
 		good_bureaucrat.decrementGrade(80);
 		std::cout << good_bureaucrat;
 		good_bureaucrat.decrementGrade(50);
