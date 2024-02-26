@@ -15,8 +15,8 @@ class AForm {
 	
 	protected:
 		const std::string target;
+		void checkRequirements(const Bureaucrat& bureaucrat) const;
 		
-
 	public:
 		AForm();
 		AForm(const AForm& form);
@@ -30,7 +30,6 @@ class AForm {
 		int getExecuteGrade() const;
 		bool isSigned() const;
 		void beSigned(const Bureaucrat& bureaucrat);
-		void checkRequirements(const Bureaucrat& bureaucrat) const;
 		virtual void execute(Bureaucrat const & executor) const = 0;
 		class GradeTooHighException : public std::exception {
 			public:

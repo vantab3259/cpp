@@ -1,15 +1,11 @@
 CPP = c++
-NAME = Bureaucrat
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -
+NAME = Converter
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -MMD
 SRCS = main.cpp \
-		Bureaucrat.cpp \
-		RobotomyRequestForm.cpp \
-		ShrubberyCreationForm.cpp \
-		PresidentialPardonForm.cpp \
-		AForm.cpp \
-		Intern.cpp
+		ScalarConverter.cpp
+	
 
-BJS = $(SRCS:.cpp=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 

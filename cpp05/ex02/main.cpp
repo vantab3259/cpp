@@ -66,7 +66,7 @@ int main(void)
 	*ptr = egal;
 	try{
 		std::cout << *ptr;
-		ptr->incrementGrade();
+		ptr->incrementGrade(200);
 		std::cout << *ptr;
 	}
 	catch(std::exception& e){

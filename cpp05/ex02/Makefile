@@ -8,21 +8,23 @@ SRCS = main.cpp \
 		PresidentialPardonForm.cpp \
 		AForm.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+BJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CPP) $(FLAGS) -o $(NAME) $(OBJS)
+	@echo  "\033[1;32m"Compiled"\033[0m"
 
 
 %.o: %.cpp
 	$(CPP) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o *.d
+	@echo  "\033[1;32m"Clean"\033[0m"
+	@rm -f *.o *.d
 
-fclean: clean
-	rm -f $(NAME)
+fclean: clean 
+	@rm -f $(NAME)
 
 re: fclean all
