@@ -1,6 +1,6 @@
 CPP = c++
 NAME = Bureaucrat
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -MMD
 SRCS = main.cpp \
 		Bureaucrat.cpp \
 		RobotomyRequestForm.cpp \
@@ -27,3 +27,5 @@ clean:
 
 fclean: clean 
 	@rm -f $(NAME)
+
+re: fclean all
