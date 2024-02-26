@@ -4,7 +4,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -MMD
 SRCS = main.cpp \
 		Bureaucrat.cpp
 
-BJS = $(SRCS:.cpp=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
@@ -22,5 +22,3 @@ clean:
 
 fclean: clean 
 	@rm -f $(NAME)
-
-re: fclean all

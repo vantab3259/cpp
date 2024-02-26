@@ -9,7 +9,7 @@ SRCS = main.cpp \
 		AForm.cpp \
 		Intern.cpp
 
-BJS = $(SRCS:.cpp=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
@@ -27,5 +27,3 @@ clean:
 
 fclean: clean 
 	@rm -f $(NAME)
-
-re: fclean all
