@@ -25,13 +25,16 @@ bool	ScalarConverter::isNumber(const std::string& input) {
 				hasDecimalPoint = true;
 			} else if (c == 'f' && !hasF) {
 				hasF = true;
-			} else {
-				return false; // Un caractère invalide a été trouvé
-			}
+			} else if (i == 0 && input[i] == '-'){
+				continue; // Un caractère invalide a été trouvé
+			} else 
+			 	return false;
 		}
 	}
 	return true;
 }
+
+
 
 int ScalarConverter::setPrecision(const std::string& input) {
 
