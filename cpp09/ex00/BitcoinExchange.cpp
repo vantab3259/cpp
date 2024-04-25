@@ -10,7 +10,7 @@ bool BitcoinExchange::isnum(const std::string& str, char type) {
 	int space = 0,point = 0, tp = 0;
     for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
         if (!isdigit(*it) && *it != '-' && *it != type && *it != '.' && *it != ' ') 
-            return print_err("Error: bad input => " + str);
+            return print_err("bad input => " + str);
 		if(*it == type)
 		 	tp = tp+1;
 		if(*it == '.')
@@ -19,13 +19,13 @@ bool BitcoinExchange::isnum(const std::string& str, char type) {
 		{
 			space++;
 			if ((!isdigit(*(it-1)) && *(it+1) != '|') && (!isdigit(*(it+1)) && *(it-1) != '|'))
-            	return print_err("Error: bad input => " + str);
+            	return print_err("bad input => " + str);
 		}
     }
 	if(( space != 2 && space != 0) || point > 1 ||  tp != 1)
-		return print_err("Error: bad input => " + str);
+		return print_err("bad input => " + str);
 	if(!isdigit(str[str.size()-1]) || !isdigit(str[0]))
-		return print_err("Error: bad input => " + str);
+		return print_err("bad input => " + str);
     return true;
 }
 
@@ -35,10 +35,7 @@ bool	BitcoinExchange::verifLine(std::string line, char type, bool csv)
 	if (line == strPro && csv)
 		return true;
 	if (!isnum(line, type))
-	{
-		std::cout <<"lalsldllfl";
 		return false;
-	}
 	std::stringstream ss(line);
 	int year, month, day;
 	double amount;
@@ -47,23 +44,23 @@ bool	BitcoinExchange::verifLine(std::string line, char type, bool csv)
 	ss >> year  >> delim1 >> month >> delim2 >> day >> delim3 >>  amount; 
 
 	if (delim1 != '-' || delim2 != '-' || delim3 != type)
-		return print_err("Error: bad input => " + line);
+		return print_err("bad input => " + line);
 	if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31)
-		return print_err("Error: bad input => " + line);
+		return print_err("bad input => " + line);
 	if (month == 4 || month == 6 || month == 9 || month == 11) {
 		if (day > 30)
-			return print_err("Error: bad input => " + line);
+			return print_err("bad input => " + line);
 	}
 	if (month == 2) {
 		bool isLeapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
 		if ((isLeapYear && day > 29) || (!isLeapYear && day > 28)) {
-			return print_err("Error: bad input => " + line);
+			return print_err("bad input => " + line);
 		}
 	}
 	if ((amount < 0 || amount > 1000) && !csv)
-    	return print_err(amount > 1000 ? "Error: too large a number." : "Error: too small a number.");
+    	return print_err(amount > 1000 ? "too large a number." : "too small a number.");
 	if ((amount < 0 || amount > 9999999) && csv)
-    	return print_err(amount > 9999999 ? "Error: too large a number." : "Error: too small a number.");
+    	return print_err(amount > 9999999 ? "too large a number." : "too small a number.");
 	return true;
 }
 
@@ -194,7 +191,7 @@ BitcoinExchange::BitcoinExchange(std::string const & file) : _inputFile(file)
 	}
 	catch(std::exception & e)
 	{
-		std::cout << "Error: " << e.what() << std::endl;
+		std::cout << "Error" << e.what() << std::endl;
 	}
 }
 

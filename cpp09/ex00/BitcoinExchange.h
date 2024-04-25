@@ -11,7 +11,6 @@
 class BitcoinExchange
 {
 public:
-    BitcoinExchange();
     BitcoinExchange(std::string const & inputFile);
     BitcoinExchange(BitcoinExchange const & copy);
 	BitcoinExchange & operator=(BitcoinExchange const & copy);
@@ -40,6 +39,7 @@ public:
 	};
 
 private:
+    BitcoinExchange();
 	std::string _inputFile;
 };
 
