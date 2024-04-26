@@ -6,6 +6,7 @@
 #include <iostream>
 #include <limits>
 #include <vector>
+#include <list>
 
 
 
@@ -20,6 +21,7 @@ public:
         return (*this);
     }
     // fin norme cop
+	void				insert(std::vector<int> & v, size_t step);
     void				sort(std::vector<int>&v, size_t step);
     std::vector<int> 	check_arg(char** arg);
 

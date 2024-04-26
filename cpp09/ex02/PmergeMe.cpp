@@ -1,22 +1,7 @@
 #include "PmergeMe.h"
 
-void	PmergeMe::sort(std::vector<int> & v, size_t step) {
-
-
-	for (size_t i = step*2-1; i +step*2 <= v.size(); i += step*2)
-	{
-		if(v[i] < v[i - step])
-		{
-			for (size_t j = 0; j < step; j++)
-				std::swap(v[i-j], v[i-step-j]);
-		}
-	}
-
-
-	if(step * 2 < v.size())
-		sort(v, step*2);
-
-	for(size_t i = step*2-1; i+step <= v.size(); i += step)
+void	PmergeMe::insert(std::vector<int> & v, size_t range) {
+	for(size_t i = range*2-1; i < v.size(); i += range)
 	{
 		int left = 0;
 		int right = i;
@@ -29,15 +14,78 @@ void	PmergeMe::sort(std::vector<int> & v, size_t step) {
 			else
 				left = mid + 1;
 		}
-		for (size_t j = 0; j < step; j++)
+		for (size_t j = 0; j < range; j++)
 		{
 			v.insert(v.begin() + right, v[i]);
 			v.erase(v.begin() + i + 1);
-		}
-			
+		}	
 	}
+}
+
+void	PmergeMe::sort(std::vector<int> & v, size_t range) {
+	for (size_t i = range*2-1; i < v.size(); i += range*2)
+	{
+		if(v[i] < v[i - range])
+		{
+			for (size_t j = 0; j < range; j++){
+				std::swap(v[i-j], v[i-range-j]);
+			}
+		}
+	}
+	std::cout << "IN recursion Merge: " << range << std::endl;
+	for (size_t i = 0; i < v.size(); ++i) { std::cout << v[i] << " "; }
+    std::cout << std::endl;
+
+	if(range * 2 < v.size())
+		sort(v, range*2);
+
+	insert(v, range);
+	std::cout << "OUT recursion Insersion: " << range<<  std::endl;
+	for (size_t i = 0; i < v.size(); ++i) { std::cout << v[i] << " "; }
+    std::cout << std::endl;
+	
 	return;
 }
+
+
+// void	PmergeMe::insert(std::vector<int> & v, size_t range) {
+// 	for(size_t i = range*2-1; i+range <= v.size(); i += range)
+// 	{
+// 		int left = 0;
+// 		int right = i;
+// 		int mid;
+// 		while(left < right)
+// 		{
+// 			mid = left + (right - left) / 2;
+// 			if(v[i] <= v[mid])
+// 				right = mid;
+// 			else
+// 				left = mid + 1;
+// 		}
+// 		for (size_t j = 0; j < range; j++)
+// 		{
+// 			v.insert(v.begin() + right, v[i]);
+// 			v.erase(v.begin() + i + 1);
+// 		}	
+// 	}
+// }
+// void	PmergeMe::sort(std::vector<int> & v, size_t range) {
+
+// 	for (size_t i = range*2-1; i +range*2 <= v.size(); i += range*2)
+// 	{
+// 		if(v[i] < v[i - range])
+// 		{
+// 			for (size_t j = 0; j < range; j++)
+// 				std::swap(v[i-j], v[i-range-j]);
+// 		}
+// 	}
+// 	if(range * 2 < v.size())
+// 		sort(v, range*2);
+// 	insert(v, range);
+	
+// 	return;
+// }
+
 
 std::vector<int> PmergeMe::check_arg(char** arg) {
     int i = 1;
@@ -60,7 +108,8 @@ std::vector<int> PmergeMe::check_arg(char** arg) {
 
 PmergeMe::PmergeMe(char** arg) {
     std::vector<int> v = check_arg(arg);
+
     sort(v, 1);
-	for (size_t i = 0; i < v.size(); ++i) { std::cout << v[i] << " "; }
+	// for (size_t i = 0; i < v.size(); ++i) { std::cout << v[i] << " "; }
     std::cout << std::endl;
 }
