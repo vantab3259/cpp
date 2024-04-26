@@ -7,10 +7,7 @@
 #include <limits>
 #include <vector>
 
-struct _pair{
-	int a;
-	int b;
-} _pair;
+
 
 class PmergeMe {
 public:
@@ -23,10 +20,7 @@ public:
         return (*this);
     }
     // fin norme cop
-    void				binary_insert(std::vector<int>&v, int elem);
-
     void				sort(std::vector<int>&v, size_t step);
-    std::vector<int> 	fordJ(std::vector<int>& vector);
     std::vector<int> 	check_arg(char** arg);
 
 private:

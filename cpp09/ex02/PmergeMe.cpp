@@ -2,9 +2,8 @@
 
 void	PmergeMe::sort(std::vector<int> & v, size_t step) {
 
-	std::cout << "recurtion IN with step" << step  <<std::endl;
 
-	for (size_t i = step*2-1; i <= v.size(); i += step*2)
+	for (size_t i = step*2-1; i +step*2 <= v.size(); i += step*2)
 	{
 		if(v[i] < v[i - step])
 		{
@@ -12,31 +11,31 @@ void	PmergeMe::sort(std::vector<int> & v, size_t step) {
 				std::swap(v[i-j], v[i-step-j]);
 		}
 	}
-	for (size_t i = 0; i < v.size(); ++i) { std::cout << v[i] << " "; }
-    std::cout << std::endl;
+
 
 	if(step * 2 < v.size())
 		sort(v, step*2);
-	std::cout << "recurtion OUT with step" << step  <<std::endl;
-	
-	for(size_t i = step*2-1; i <= v.size(); i += step)
-	{
-		for(size_t z = step-1; z <= i; z+= step)
-		{
-			if(v[i] < v[z])
-			{
-				for (size_t j = 0; j < step; j++)
-				{
 
-					v.insert(v.begin() + z-step+1, v[i]);
-					v.erase(v.begin() + i + 1);
-				}
-				z+= step;
-			}
+	for(size_t i = step*2-1; i+step <= v.size(); i += step)
+	{
+		int left = 0;
+		int right = i;
+		int mid;
+		while(left < right)
+		{
+			mid = left + (right - left) / 2;
+			if(v[i] <= v[mid])
+				right = mid;
+			else
+				left = mid + 1;
 		}
+		for (size_t j = 0; j < step; j++)
+		{
+			v.insert(v.begin() + right, v[i]);
+			v.erase(v.begin() + i + 1);
+		}
+			
 	}
-	for (size_t i = 0; i < v.size(); ++i) { std::cout << v[i] << " "; }
-    std::cout << std::endl;
 	return;
 }
 
@@ -62,4 +61,6 @@ std::vector<int> PmergeMe::check_arg(char** arg) {
 PmergeMe::PmergeMe(char** arg) {
     std::vector<int> v = check_arg(arg);
     sort(v, 1);
+	for (size_t i = 0; i < v.size(); ++i) { std::cout << v[i] << " "; }
+    std::cout << std::endl;
 }
