@@ -6,7 +6,9 @@
 #include <iostream>
 #include <limits>
 #include <vector>
+#include <deque>
 #include <list>
+#include <ctime>
 
 
 
@@ -21,8 +23,10 @@ public:
         return (*this);
     }
     // fin norme cop
-	void				insert(std::vector<int> & v, size_t step);
-    void				sort(std::vector<int>&v, size_t step);
+	template <typename v_d>
+	void				insert(v_d & v, size_t step);
+	template <typename v_d>
+    void				sort(v_d&v, size_t step);
     std::vector<int> 	check_arg(char** arg);
 
 private:
