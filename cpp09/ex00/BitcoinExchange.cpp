@@ -67,47 +67,45 @@ bool	BitcoinExchange::verifLine(std::string line, char type, bool csv)
 void	BitcoinExchange::parsingFile(std::map<std::string, double> csvMap)
 {
 	double amount;
-	std::string date;
-	std::ifstream i(_inputFile.c_str());
-	if(!i.is_open()){
-		throw invalidFile();
-	}
-	std::string line;
-	std::map<std::string, double> fileMap;
-	while(std::getline(i, line))
-	{
-		if(verifLine(line, '|', false))
-		{
+    std::string date;
+    std::ifstream inputFile(_inputFile.c_str());
+    if(!inputFile.is_open()){
+        throw invalidFile();
+    }
+    std::string line;
 
-			amount = getAmount(line, '|', false);
-			if(amount == -1)
-				std::cout << "ERROR : too large a number" << std::endl;
-			date = getDate(line, '|', false);
-			bool found = false;
-			for( std::map<std::string, double>::iterator it = csvMap.begin(); it != csvMap.end(); it++)
-			{
-				if(it->first == date)
-				{
-					found = true;
-					std::cout << date << "--> " << amount * it->second << std::endl; 
-					break;
-				}
-				if(it->first > date){
- 					if (it == ++csvMap.begin()){
-						found = true;
-						std::cout << "No information yet, to early date" << std::endl;
-					}
-					if (it != ++csvMap.begin()) {
-                		--it;
-                		std::cout << date << "--> " << amount * it->second << std::endl;
-						found = true;
-            		} 
-            		break;
-				}
-			}
-			if(found == false)
-                std::cout << date << "--> " << amount * (--csvMap.end()->second)<< std::endl;
-		}
+    while(std::getline(inputFile, line))
+    {
+        if(verifLine(line, '|', false))
+        {
+            amount = getAmount(line, '|', false);
+            if(amount == -1)
+                std::cout << "ERROR : too large a number" << std::endl;
+
+            date = getDate(line, '|', false);
+            std::map<std::string, double>::const_iterator it = csvMap.lower_bound(date);
+            if(it != csvMap.end())
+            {
+                if(it->first == date)
+                {
+                    std::cout << date << "--> " << amount * it->second << std::endl; 
+                }
+                else if(it != csvMap.begin())
+                {
+                    --it;
+                    std::cout << date << "--> " << amount * it->second << std::endl;
+                }
+                else
+                {
+                    std::cout << "No information yet, too early date" << std::endl;
+                }
+            }
+            else
+            {
+                --it;
+                std::cout << date << "--> " << amount * it->second << std::endl;
+            }
+        }
 	}
 }
 
